@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperRepository", "Dapper\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{86C4532A-C681-4F40-B95C-0E855D11331E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsightDatabase", "InsightDatabase\InsightDatabase.csproj", "{6272CA43-C0C7-44BD-88EF-87FE7256130C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsightDatabaseRepository", "InsightDatabase\InsightDatabaseRepository.csproj", "{6272CA43-C0C7-44BD-88EF-87FE7256130C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernate", "NHibernate\NHibernate.csproj", "{177FBFF6-68DA-42BC-98AD-E49B5D52A8B1}"
 EndProject

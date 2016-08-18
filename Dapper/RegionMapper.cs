@@ -1,4 +1,5 @@
 ﻿using Models;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -18,6 +19,7 @@ namespace DapperRepository
         public RegionMapper()
         {
             connectionString = ConfigurationManager.ConnectionStrings["NetFundamentals"].ToString();            
+            //connectionString = ConfigurationManager.ConnectionStrings["NetFundamentalsAventure"].ToString();            
         }
 
         public int Create(Region model)
@@ -42,6 +44,17 @@ namespace DapperRepository
             }
         }
 
+        public IEnumerable<Region> RegionList()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var result = connection.GetList<Region>(); //.Query<Region>("select * from Person.Person");
+                connection.Close();
+                return result;
+            }
+        }
+
         public Region GetById(int id)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -52,6 +65,8 @@ namespace DapperRepository
                 return result;
             }
         }
+
+
 
     }
 }

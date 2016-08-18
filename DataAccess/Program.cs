@@ -11,34 +11,64 @@ namespace DataAccess
 {
     class Program
     {
-        private static RegionMapper repository = new RegionMapper();
+        private static RegionMapper dapperRepository = new RegionMapper();
         private static RegionRepository efRepository = new RegionRepository();
         static void Main(string[] args)
         {
             /** Dapper  **/
-            var newRegion = new Region
-            {                
-                RegionDescription="Dapper Example"
-            };
-            var watch = System.Diagnostics.Stopwatch.StartNew();            
-            CreateRegionDapper(newRegion);
+            //var newRegion = new Region
+            //{                
+            //    RegionDescription="Dapper Example"
+            //};
+            //var watch = System.Diagnostics.Stopwatch.StartNew();            
+            //CreateRegionDapper(newRegion);
+            //watch.Stop();
+            //Console.WriteLine($"Dapper {FormattedExecutionTime(watch.ElapsedMilliseconds)}");
+            ////UpdateRegionDapper(5, "Lo que queremos que aparezca");
+            //watch.Reset();
+
+            
+            Console.WriteLine("Dapper Get List");
+            //watch.Start();
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            var regionDapperList = dapperRepository.RegionList();
             watch.Stop();
-            Console.WriteLine($"Dapper {FormattedExecutionTime(watch.ElapsedMilliseconds)}");
+            Console.WriteLine($"Total Elements:  {regionDapperList.Count()}");
+            //PrintRegion(regionDapperList);
+
+            Console.WriteLine($"Dapper time {FormattedExecutionTime(watch.ElapsedMilliseconds)}");
             watch.Reset();
 
-            newRegion.RegionDescription = "EF Example";
-            watch.Start();            
-            CreateRegionEF(newRegion);
-            watch.Stop();
-            Console.WriteLine($"EF {FormattedExecutionTime(watch.ElapsedMilliseconds)}");
+            /** Entity Framework  **/
+            //newRegion.RegionDescription = "EF Example";
+            //watch.Start();            
+            //CreateRegionEF(newRegion);
+            //watch.Stop();
+            //Console.WriteLine($"EF {FormattedExecutionTime(watch.ElapsedMilliseconds)}");
 
-            //UpdateRegionDapper(5, "Lo que queremos que aparezca");
+            
+            Console.WriteLine("Entity Framework Get List");
+            watch.Start();
+            var regionEFList = efRepository.RegionList();
+            watch.Stop();
+            Console.WriteLine($"Total Elements:  {regionDapperList.Count()}");
+            Console.WriteLine($"Entity Time {FormattedExecutionTime(watch.ElapsedMilliseconds)}");
+            //PrintRegion(regionDapperList);
+
             Console.ReadKey();
+        }
+
+        static void PrintRegion(IEnumerable<Region> regionList)
+        {
+            foreach (var region in regionList)
+            {
+                Console.WriteLine($"Id: {region.RegionID} - Description: {region.RegionDescription}");
+            }
         }
 
         static string FormattedExecutionTime(long milliseconds)
         {
-            return $"Execution time: {milliseconds:F}";
+            return $"Execution time: {milliseconds} milliseconds";
         }
 
         #region EntityFramework
@@ -54,7 +84,7 @@ namespace DataAccess
         #region Dapper
         static void CreateRegionDapper(Region region)
         {
-            if(repository.Create(region)>0)            
+            if(dapperRepository.Create(region)>0)            
                 Console.WriteLine("The Region is created");
             else
                 Console.WriteLine("Something is wrong.");
@@ -62,11 +92,11 @@ namespace DataAccess
 
         static void UpdateRegionDapper(int id, string change)
         {
-            var region = repository.GetById(id);
+            var region = dapperRepository.GetById(id);
             if (region == null) return;
 
             region.RegionDescription = change;
-            if(repository.Update(region))
+            if(dapperRepository.Update(region))
                 Console.WriteLine("The Region is updated");
             else
                 Console.WriteLine("Something is wrong.");

@@ -1,6 +1,7 @@
 ﻿using Models;
 using System.Data.Entity;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace EntityFrameworkRepository
 {
@@ -33,7 +34,15 @@ namespace EntityFrameworkRepository
             }
         }
 
-        public Region Delete(int id)
+        public IEnumerable<Region> RegionList()
+        {
+            using (var dbContext = new NorthWindContext())
+            {                
+                return dbContext.Regions;
+            }
+        }
+
+        public Region GetById(int id)
         {
             using (var dbContext = new NorthWindContext())
             {
