@@ -5,15 +5,17 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{4B4AA08F-A767-42F1-807C-08350F800D70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework", "EntityFramework\EntityFramework.csproj", "{87BF11F9-6AF0-4C40-90DC-DC9B4A20534B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkRepository", "EntityFramework\EntityFrameworkRepository.csproj", "{87BF11F9-6AF0-4C40-90DC-DC9B4A20534B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapper", "Dapper\Dapper.csproj", "{481B6A02-D9F5-48AD-93CE-96A70B2EEC10}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperRepository", "Dapper\DapperRepository.csproj", "{481B6A02-D9F5-48AD-93CE-96A70B2EEC10}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{86C4532A-C681-4F40-B95C-0E855D11331E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{86C4532A-C681-4F40-B95C-0E855D11331E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsightDatabase", "InsightDatabase\InsightDatabase.csproj", "{6272CA43-C0C7-44BD-88EF-87FE7256130C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernate", "NHibernate\NHibernate.csproj", "{177FBFF6-68DA-42BC-98AD-E49B5D52A8B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{7A37B961-C9D6-4EA3-991B-0338DCFD51CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{177FBFF6-68DA-42BC-98AD-E49B5D52A8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{177FBFF6-68DA-42BC-98AD-E49B5D52A8B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{177FBFF6-68DA-42BC-98AD-E49B5D52A8B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A37B961-C9D6-4EA3-991B-0338DCFD51CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A37B961-C9D6-4EA3-991B-0338DCFD51CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A37B961-C9D6-4EA3-991B-0338DCFD51CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A37B961-C9D6-4EA3-991B-0338DCFD51CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
