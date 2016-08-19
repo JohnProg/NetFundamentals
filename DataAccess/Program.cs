@@ -27,7 +27,7 @@ namespace DataAccess
             ////UpdateRegionDapper(5, "Lo que queremos que aparezca");
             //watch.Reset();
 
-            
+
             Console.WriteLine("Dapper Get List");
             //watch.Start();
             var watch = System.Diagnostics.Stopwatch.StartNew();
