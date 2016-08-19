@@ -34,7 +34,7 @@ namespace DataAccess
             var regionDapperList = dapperRepository.RegionList();
             watch.Stop();
             Console.WriteLine($"Total Elements:  {regionDapperList.Count()}");
-            //PrintRegion(regionDapperList);
+            PrintRegion(regionDapperList);
 
             Console.WriteLine($"Dapper time {FormattedExecutionTime(watch.ElapsedMilliseconds)}");
             watch.Reset();
@@ -53,7 +53,7 @@ namespace DataAccess
             watch.Stop();
             Console.WriteLine($"Total Elements:  {regionDapperList.Count()}");
             Console.WriteLine($"Entity Time {FormattedExecutionTime(watch.ElapsedMilliseconds)}");
-            //PrintRegion(regionDapperList);
+            PrintRegion(regionDapperList);
 
             Console.ReadKey();
         }
